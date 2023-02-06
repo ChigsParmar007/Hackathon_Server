@@ -1,22 +1,24 @@
 const mongoose = require("mongoose")
-const crypto = require('crypto')
 const validator = require('validator')
+const crypto = require('crypto')
 const bcrypt = require('bcryptjs')
 
 const schema = new mongoose.Schema({
     mname: {
         type: String,
-        required: true,
+        required: [true, 'Ministry Name Field is required.'],
         unique: true
     },
     minister: {
         type: String,
-        required: true
+        required: [true, 'Minister Name field is required.'],
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: [true, 'Email field is required.'],
+        unique: true,
+        lowercase: true,
+        validate: [validator.isEmail, 'Provide a valid Email']
     },
     contact: {
         type: Number,
@@ -25,17 +27,19 @@ const schema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: [true, 'Password field is required.'],
+        minlength: 8,
+        select: false
     },
     passwordConfirm: {
         type: String,
-        required: [true, 'Please confirm your password'],
+        required: [true, 'Confirm Password filed is required'],
         validate: {
             // This only works on CREATE and SAVE!!!
             validator: function (el) {
-                return el === this.password
+                return el === this.password;
             },
-            message: 'Passwords are not the same!'
+            message: 'Passwords and ConfirmPassword are not same.'
         }
     },
     passwordChangedAt: Date,
@@ -43,11 +47,7 @@ const schema = new mongoose.Schema({
         type: Boolean,
         default: true,
         select: false
-    },
-    isAdmin: {
-        type: Boolean,
-        default: false
-    },
+    }
 })
 
 schema.pre('save', async function (next) {
@@ -75,10 +75,7 @@ schema.pre(/^find/, function (next) {
     next()
 })
 
-schema.methods.correctPassword = async function (
-    candidatePassword,
-    userPassword
-) {
+schema.methods.correctPassword = async function (candidatePassword, userPassword) {
     return await bcrypt.compare(candidatePassword, userPassword)
 }
 

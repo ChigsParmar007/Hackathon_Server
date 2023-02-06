@@ -1,31 +1,33 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const app = express();
-const dotenv = require("dotenv")
-const port = process.env.port || 5000;
-const cors = require("cors");
-const bodyparser = require("body-parser");
-const LoginRoute = require('./Routes/MLogin');
+const mongoose = require("mongoose")
+const dotenv = require('dotenv')
+dotenv.config()
+const app = require('./app')
 
-dotenv.config();
-app.use(bodyparser.urlencoded({ extended: true }))
-app.use(bodyparser.json());
-app.use(express.json())
-app.use(cors());
+process.on('uncaughtException', err => {
+    console.log('UNCAUGHT EXCEPTION! Shutting down...')
+    console.log(err.name, err.message)
+    process.exit(1)
+})
 
 mongoose.set('strictQuery', true)
-
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useCreateIndex: true,
+    // useFindAndModify: false
 }).then(() => {
-    console.log("MongoDB Atlas Connected..")
+    console.log('MongoDB Atlas Connected..')
 }).catch((error) => {
     console.log(error)
 })
-
-app.use("/api/auth", LoginRoute);
-
+const port = process.env.PORT || 5000
 app.listen(port, () => {
-    console.log(`Server is Running on PORT ${port}`);
+    console.log(`Server is Running on PORT ${port}`)
+})
+
+process.on('unhandledRejection', err => {
+    console.log('UNHANDLED REJECTION! Shutting down...')
+    console.log(err.name, err.message)
+    server.close(() => {
+        process.exit(1)
+    })
 })
