@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const User = require('../Model/MLogin');
+const User = require('../Model/MLogin').default;
 const CryptoJS = require("crypto-js");
 
 
@@ -7,9 +7,9 @@ const CryptoJS = require("crypto-js");
 router.post("/minister-register", async (req, res) => {
 	const newUser = new User({
 		mname: req.body.mname,
-        minister:req.body.minister, 
+		minister: req.body.minister,
 		email: req.body.email,
-		contact:req.body.contact,
+		contact: req.body.contact,
 		password: CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SEC).toString(),
 	})
 
@@ -40,7 +40,7 @@ router.post("/login", async (req, res) => {
 		const { password, ...others } = user._doc;
 		return res.status(200).json({ ...others });
 	} catch (err) {
-	} 
+	}
 })
 
 module.exports = router;
