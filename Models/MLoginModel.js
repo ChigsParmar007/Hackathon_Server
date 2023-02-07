@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 const validator = require('validator')
 const crypto = require('crypto')
 const bcrypt = require('bcryptjs')
@@ -108,6 +108,6 @@ schema.methods.createPasswordResetToken = function () {
     return resetToken
 }
 
-const ministerSchma = mongoose.model("Minister", schema)
+const ministerSchma = mongoose.model('Minister', schema)
 
 module.exports = ministerSchma

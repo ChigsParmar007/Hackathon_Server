@@ -3,7 +3,7 @@ const { promisify } = require('util')
 const jwt = require('jsonwebtoken')
 const catchAsync = require('./../utils/catchAsync')
 const AppError = require('./../utils/appError')
-const Minister = require('../Model/MLoginModel')
+const Minister = require('../Models/MLoginModel')
 
 const signToken = id => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -29,9 +29,7 @@ const createSendToken = (minister, statusCode, res) => {
     res.status(statusCode).json({
         status: 'success',
         token,
-        data: {
-            minister
-        }
+        minister
     })
 }
 
