@@ -4,14 +4,23 @@ const crypto = require('crypto')
 const bcrypt = require('bcryptjs')
 
 const schema = new mongoose.Schema({
-    mname: {
+    employeeName: {
         type: String,
-        required: [true, 'Ministry Name Field is required.'],
-        unique: true
+        required: [true, 'Employee Name Field is required.']
     },
-    minister: {
+    ministerID: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Minister',
+        required: [true, 'Ministry Object ID Field is required.']
+    },
+    officeID: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Office',
+        required: [true, 'Ministry Object ID Field is required.']
+    },
+    gender: {
         type: String,
-        required: [true, 'Minister Name field is required.'],
+        required: [true, 'Gender Field is required.']
     },
     email: {
         type: String,
@@ -19,11 +28,6 @@ const schema = new mongoose.Schema({
         unique: true,
         lowercase: true,
         validate: [validator.isEmail, 'Provide a valid Email']
-    },
-    contact: {
-        type: Number,
-        required: true,
-        unique: true
     },
     password: {
         type: String,
@@ -42,11 +46,33 @@ const schema = new mongoose.Schema({
             message: 'Passwords and ConfirmPassword are not same.'
         }
     },
-    passwordChangedAt: Date,
-    active: {
-        type: Boolean,
-        default: true,
-        select: false
+    phone: {
+        type: String,
+        required: [true, 'Phone Field is required.']
+    },
+    addressLine1: {
+        type: String,
+        required: [true, 'Address Line 1 Field is required.']
+    },
+    addressLine2: {
+        type: String,
+        required: [true, 'Address Line 2 Field is required.']
+    },
+    city: {
+        type: String,
+        required: [true, 'City Field is required.']
+    },
+    postalCode: {
+        type: String,
+        required: [true, 'Postal Code Field is required.']
+    },
+    dateOfJoining: {
+        type: Date,
+        required: [true, 'Date Of Joining Field is required.']
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now()
     }
 })
 
@@ -108,6 +134,6 @@ schema.methods.createPasswordResetToken = function () {
     return resetToken
 }
 
-const ministerSchma = mongoose.model('Minister', schema)
+const employeeSchema = mongoose.model('employee', schema)
 
-module.exports = ministerSchma
+module.exports = employeeSchema

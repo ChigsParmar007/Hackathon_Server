@@ -2,30 +2,45 @@ index.js
 app.js
 
 Models
--> MLoginModel.js
+-> ministerModel.js
 -> cityModel.js
 -> officeModel.js
-ministerModel.js
-employeeModel.js
+-> employeeModel.js
+designationModel.js
+empeducationModel.js
 
 Routes
--> MLoginRoute.js
+-> ministerRoute.js
 -> cityRoute.js
 -> officeRoute.js
-ministerRoute.js
-employeeRoute.js
+-> employeeRoute.js
+designationRoute.js
+empeducationRoute.js
 
 
 Controllers
 -> authControllers.js
 -> cityControllers.js
 -> officeController.js
-ministerControllers.js
-employeeController.js
+-> employeeController.js
+designationController.js
+empeducationController.js
 
 
 
 minister Registration
-login
-logout
+minister login
+minister logout
+
+employee Registration
+employee login
+employee logout
+
 city Registration
+get all city
+delete one city
+
+office Registration
+get all office
+delete one office
+

@@ -3,7 +3,7 @@ const { promisify } = require('util')
 const jwt = require('jsonwebtoken')
 const catchAsync = require('./../utils/catchAsync')
 const AppError = require('./../utils/appError')
-const Minister = require('../Models/MLoginModel')
+const Minister = require('../Models/ministerModel')
 
 const signToken = id => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -33,16 +33,21 @@ const createSendToken = (minister, statusCode, res) => {
     })
 }
 
-const signup = catchAsync(async (req, res, next) => {
-    const newMinister = await Minister.create(req.body)
+const signup = model => catchAsync(async (req, res, next) => {
+    const data = await model.create(req.body)
 
     const url = `${req.protocol}://${req.get('host')}/me`
     // console.log(url)
 
-    createSendToken(newMinister, 201, res)
+    // createSendToken(newMinister, 201, res)
+    res.status(201).json({
+        status: 'success',
+        data
+    })
+
 })
 
-const login = catchAsync(async (req, res, next) => {
+const login = model => catchAsync(async (req, res, next) => {
     const { email, password } = req.body
 
     // 1) Check if email and password exist
@@ -50,14 +55,14 @@ const login = catchAsync(async (req, res, next) => {
         return next(new AppError('Please provide email and password!', 400))
     }
     // 2) Check if minister exists && password is correct
-    const minister = await Minister.findOne({ email }).select('+password')
+    const data = await model.findOne({ email }).select('+password')
 
-    if (!minister || !(await minister.correctPassword(password, minister.password))) {
+    if (!data || !(await data.correctPassword(password, data.password))) {
         return next(new AppError('Incorrect email or password', 401))
     }
 
     // 3) If everything ok, send token to client
-    createSendToken(minister, 200, res)
+    createSendToken(data, 200, res)
 })
 
 const logout = (req, res) => {
