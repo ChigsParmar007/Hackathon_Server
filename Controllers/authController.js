@@ -118,9 +118,18 @@ const protect = catchAsync(async (req, res, next) => {
     next()
 })
 
+const getAll = model => async (req, res, next) => {
+    const data = await model.find()
+    res.status(200).json({
+        status:'success',
+        data
+    })
+}
+
 module.exports = {
     signup,
     login,
     logout,
-    protect
+    protect,
+    getAll
 }

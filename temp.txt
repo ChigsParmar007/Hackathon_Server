@@ -29,10 +29,12 @@ empeducationController.js
 
 
 minister Registration
+minister get All
 minister login
 minister logout
 
 employee Registration
+employee get all
 employee login
 employee logout
 

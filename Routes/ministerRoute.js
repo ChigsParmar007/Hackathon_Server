@@ -13,5 +13,8 @@ router
 router
 	.get('/logout', authController.logout)
 
+router
+	.get('/', authController.getAll(Minister))
+
 
 module.exports = router
