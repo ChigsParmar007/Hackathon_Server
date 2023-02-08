@@ -2,21 +2,30 @@ index.js
 app.js
 
 Models
-MLoginModel.js
+-> MLoginModel.js
+-> cityModel.js
+-> officeModel.js
+ministerModel.js
 employeeModel.js
-officeModel.js
-cityModel.js
-
 
 Routes
-MLoginRoute.js
+-> MLoginRoute.js
+-> cityRoute.js
+-> officeRoute.js
+ministerRoute.js
 employeeRoute.js
-officeRoute.js
-cityRoute.js
 
 
 Controllers
-authControllers.js
+-> authControllers.js
+-> cityControllers.js
+-> officeController.js
+ministerControllers.js
 employeeController.js
-officeController.js
-cityControllers.js
+
+
+
+minister Registration
+login
+logout
+city Registration

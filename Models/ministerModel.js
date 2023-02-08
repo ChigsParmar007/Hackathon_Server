@@ -53,6 +53,6 @@ const schema = new mongoose.Schema({
     }
 })
 
-const employeeSchema = mongoose.model('employee', schema)
+const ministerSchema = mongoose.model('minister', schema)
 
-module.exports = employeeSchema
+module.exports = ministerSchema

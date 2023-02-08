@@ -1,20 +1,31 @@
-const mongoose = require('mongoose')
+const Office = require('../Models/officeModel')
 
-const schema = new mongoose.Schema({
-    officeName: {
-        type: String,
-        required: [true, 'Office Name Field is required.']
-    },
-    ministerId: {
-        type: mongoose.Schema.ObjectId,
-        required: [true, 'Minister ID Field is required.']
-    },
-    city: {
-        type: mongoose.schema.ObjectId,
-        required: [true, 'City Field is required.']
-    }
-})
+const addOffice = async (req, res, next) => {
+    const data = await Office.create(req.body)
+    res.status(201).json({
+        status: 'Success',
+        data
+    })
+}
 
-const employeeSchema = mongoose.model('employee', schema)
+const getAllOffice = async (req, res) => {
+    const data = await Office.find()
+    res.status(200).json({
+        status: 'Success',
+        data
+    })
+}
 
-module.exports = employeeSchema
+const deleteOffice = async (req, res, next) => {
+    const data = await Office.findByIdAndDelete(req.params.id)
+    req.status(200).json({
+        status: 'Success',
+        data
+    })
+}
+
+module.exports = {
+    addOffice,
+    getAllOffice,
+    deleteOffice
+}
