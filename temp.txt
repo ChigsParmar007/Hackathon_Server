@@ -6,7 +6,7 @@ Models
 -> cityModel.js
 -> officeModel.js
 -> employeeModel.js
-designationModel.js
+-> designationModel.js
 empeducationModel.js
 
 Routes
@@ -14,7 +14,7 @@ Routes
 -> cityRoute.js
 -> officeRoute.js
 -> employeeRoute.js
-designationRoute.js
+-> designationRoute.js
 empeducationRoute.js
 
 
@@ -23,7 +23,7 @@ Controllers
 -> cityControllers.js
 -> officeController.js
 -> employeeController.js
-designationController.js
+-> designationController.js
 empeducationController.js
 
 
