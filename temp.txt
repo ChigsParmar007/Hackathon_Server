@@ -10,7 +10,8 @@ Models
 -> officeModel.js
 -> employeeModel.js
 -> designationModel.js
-empeducationModel.js
+-> empeducationModel.js
+-> adminloginModel.js
 
 Routes
 -> ministerRoute.js
@@ -18,7 +19,8 @@ Routes
 -> officeRoute.js
 -> employeeRoute.js
 -> designationRoute.js
-empeducationRoute.js
+-> empeducationRoute.js
+-> adminloginRoute.js
 
 
 Controllers
@@ -27,7 +29,8 @@ Controllers
 -> officeController.js
 -> employeeController.js
 -> designationController.js
-empeducationController.js
+-> empeducationController.js
+-> adminloginController.js
 
 
 

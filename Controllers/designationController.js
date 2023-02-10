@@ -9,7 +9,7 @@ const addDesignation = async (req, res, next) => {
 }
 
 const getAllDesignation = async (req, res) => {
-    const data = await Designation.find()
+    const data = await Designation.find().sort({_id:-1})
     res.status(200).json({
         status: 'Success',
         data
