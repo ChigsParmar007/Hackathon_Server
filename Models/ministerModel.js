@@ -29,6 +29,10 @@ const schema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    city: {
+        type: String,
+        required: [true, 'City Field is required.']
+    },
     password: {
         type: String,
         required: [true, 'Password field is required.'],
