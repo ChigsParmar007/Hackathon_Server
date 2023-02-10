@@ -2,65 +2,64 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
     empid: {
-        type: String,
+        type: mongoose.Schema.ObjectId,
         required: [true, 'Employee ID is required.'],
         unique: true
     },
-    tenthbool: {
-        type: Boolean,
-        required: [true, '10th is required.'],
-        unique: true
+    tenthyear: {
+        type: Date,
+        required: [true, '10th passing year is required.']
     },
     tenthper: {
-        type: String,
-        required: [true, '10th Percentage is required.'],
-        unique: true
+        type: Number,
+        required: [true, '10th Percentage is required.']
     },
-    twelthbool: {
-        type: Boolean,
-        required: [true, '12th is required.'],
-        unique: true
+    twelthyear: {
+        type: Date,
+        required: [true, '12th  passing year required.']
     },
     twelthper: {
-        type: String,
-        required: [true, '12th Percentage is required.'],
-        unique: true
+        type: Number,
+        required: [true, '12th Percentage is required.']
     },
-    graduation: {
+    twelthfield: {
         type: String,
-        required: [true, 'Graduation is required.'],
-        unique: true
+        required: [true, '12th Stream is required.']
+    },
+    graduationyear: {
+        type: Date,
+        required: [true, 'graduation Year is required.']
     },
     graduationper: {
-        type: String,
+        type: Number,
         required: [true, 'graduation Percentage is required.'],
         unique: true
     },
-    masters: {
+    graduationfield: {
         type: String,
-        required: [true, 'Master is required.'],
+        required: [true, 'Graduation Stream is required.']
+    },
+    masteryear: {
+        type: Date,
+        required: [true, 'Masters passing year is required.'],
         unique: true
     },
     mastersper: {
-        type: String,
-        required: [true, 'Masters Percentage is required.'],
-        unique: true
+        type: Number,
+        required: [true, 'Masters Percentage is required.']
     },
-    hindi: {
+    mastersfield: {
         type: String,
-        required: [true, 'This Field ID is required.'],
-        unique: true
-    },
-    english: {
-        type: String,
-        required: [true, 'This field is required.'],
-        unique: true
+        required: [true, 'Masters Stream is required.']
     },
     ccc: {
         type: String,
-        required: [true, 'This field is required.'],
-        unique: true
+        required: [true, 'CCC selection is required.']
     },
+    isvarified: {
+        type: Boolean,
+        default: false
+    }
 })
 
 const educationSchema = mongoose.model('education', schema)

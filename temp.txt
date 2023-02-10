@@ -1,6 +1,3 @@
-Qy3GpNXNUDI3NxyN
-
-
 index.js
 app.js
 

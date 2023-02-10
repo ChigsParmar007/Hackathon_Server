@@ -9,7 +9,6 @@ router
 
 router
     .route('/:id')
-    .delete(empeducationController.deleteEducation)
     .get(empeducationController.getEducation)
 
 module.exports = router
