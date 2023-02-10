@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-    officeName: {
+    officename: {
         type: String,
         required: [true, 'City Name Field is required.'],
         unique: true
@@ -9,12 +9,12 @@ const schema = new mongoose.Schema({
     ministerId: {
         type: mongoose.Schema.ObjectId,
         ref: 'minister',
-      required: [true, 'Minister Id field is required.']
+        required: [true, 'Minister Id field is required.']
     },
-    cityId: {
-        type: mongoose.Schema.ObjectId,
+    cityname: {
+        type: String,
         ref: 'cities',
-        required: [true, 'City id field is required.']
+        required: [true, 'City Name field is required.']
     }
 })
 

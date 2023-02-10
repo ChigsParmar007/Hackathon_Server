@@ -18,7 +18,7 @@ const getAllDesignation = async (req, res) => {
 
 const deleteDesignation = async (req, res, next) => {
     const data = await Designation.findByIdAndDelete(req.params.id)
-    req.status(200).json({
+    res.status(200).json({
         status: 'Success',
         data
     })

@@ -9,6 +9,6 @@ router
 
 router
   .route('/:id')
-  .get(cityController.deleteCity)
+  .delete(cityController.deleteCity)
 
 module.exports = router

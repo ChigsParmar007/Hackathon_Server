@@ -18,9 +18,8 @@ const getAllOffice = async (req, res) => {
 
 const deleteOffice = async (req, res, next) => {
     const data = await Office.findByIdAndDelete(req.params.id)
-    req.status(200).json({
-        status: 'Success',
-        data
+    res.status(200).json({
+        status: 'Success'
     })
 }
 

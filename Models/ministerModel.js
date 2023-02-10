@@ -4,12 +4,12 @@ const crypto = require('crypto')
 const bcrypt = require('bcryptjs')
 
 const schema = new mongoose.Schema({
-    mname: {
+    ministryname: {
         type: String,
         required: [true, 'Ministry Name Field is required.'],
         unique: true
     },
-    minister: {
+    ministername: {
         type: String,
         required: [true, 'Minister Name field is required.'],
     },
@@ -35,7 +35,7 @@ const schema = new mongoose.Schema({
         minlength: 8,
         select: false
     },
-    passwordConfirm: {
+    passwordconfirm: {
         type: String,
         required: [true, 'Confirm Password filed is required'],
         validate: {
@@ -45,6 +45,10 @@ const schema = new mongoose.Schema({
             },
             message: 'Passwords and ConfirmPassword are not same.'
         }
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now()
     },
     passwordChangedAt: Date,
     active: {

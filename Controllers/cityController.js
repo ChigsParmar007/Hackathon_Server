@@ -17,10 +17,10 @@ const getAllCity = async (req, res) => {
 }
 
 const deleteCity = async (req, res, next) => {
+    console.log(req.params.id)
     const data = await City.findByIdAndDelete(req.params.id)
-    req.status(200).json({
-        status: 'Success',
-        data
+    res.status(200).json({
+        status: 'Success'
     })
 }
 
