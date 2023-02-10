@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const schema = new mongoose.Schema({
     city: {
         type: String,
-        required: [true, 'City Name Field is required.']
+        required: [true, 'City Name Field is required.'],
+        unique: true
     },
     rupees: {
         type: Number,
@@ -11,6 +12,6 @@ const schema = new mongoose.Schema({
     },
 })
 
-const claSchema = mongoose.model('cla', schema)
+const claSchema = mongoose.model('cla', schema, 'cls')
 
 module.exports = claSchema

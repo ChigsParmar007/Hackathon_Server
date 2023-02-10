@@ -2,69 +2,49 @@ index.js
 app.js
 
 Models
--> ministerModel.js
+-> adminloginModel.js
 -> cityModel.js
 -> officeModel.js
--> employeeModel.js
+-> ministerModel.js
 -> designationModel.js
+-> employeeModel.js
 -> empeducationModel.js
--> adminloginModel.js
+-> claModel.js
+-> hraModel.js
+-> medicalModel.js
+-> taModel.js
+-> daModel.js
 
 Routes
--> ministerRoute.js
+-> adminloginRoute.js
 -> cityRoute.js
 -> officeRoute.js
--> employeeRoute.js
+-> ministerRoute.js
 -> designationRoute.js
+-> employeeRoute.js
 -> empeducationRoute.js
--> adminloginRoute.js
+-> cityRoute.js
+-> hraRoute.js
+-> medicalRoute.js
+-> taRoute.js
+-> daRoutes.js
 
 
 Controllers
--> authControllers.js
--> cityControllers.js
--> officeController.js
--> employeeController.js
--> designationController.js
--> empeducationController.js
 -> adminloginController.js
+-> authControllers.js
+-> empeducationController.js
+-> handlerFactory.js
 
 
 
-minister Registration
-minister get All
-minister login
-minister logout
-
-employee Registration
-employee get all
-employee login
-employee logout
-
-city Registration
-get all city
-delete one city
-
-office Registration
-get all office
-delete one office
-
-
-
-HRA: City, Percentage
+DA: 
+HRA: City, Per
 TA: City, rupees
 CLA: City, rupees
 medical: city, rupees
 
-
-hraRoute.js    
-hraModel.js
-
-taRoute.js    
-taModel.js
-
-claRoute.js    
-claModel.js
-
-medicalRoute.js    
-medicalModel.js
+Year wise prmotion
+increamentModel.js
+increamentRoute.js
+increamentController.js

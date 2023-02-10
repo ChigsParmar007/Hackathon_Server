@@ -40,11 +40,11 @@ const schema = new mongoose.Schema({
     },
     masteryear: {
         type: Date,
-        default: 0000 - 00 - 00
+        default: null
     },
     mastersper: {
         type: Number,
-        default: 0
+        default: null
     },
     mastersfield: {
         type: String,

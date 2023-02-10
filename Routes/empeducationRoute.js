@@ -8,7 +8,7 @@ router
     .get(empeducationController.getAllEducation)
 
 router
-    .route('/:id')
-    .get(empeducationController.getEducation)
+    .route('/getone')
+    .post(empeducationController.getEducation)
 
 module.exports = router

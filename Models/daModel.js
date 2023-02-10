@@ -6,12 +6,12 @@ const schema = new mongoose.Schema({
         required: [true, 'City Name Field is required.'],
         unique: true
     },
-    rupees: {
+    percentage: {
         type: Number,
         required: [true, 'Rupees Field is required.']
     },
 })
 
-const medicalSchema = mongoose.model('medical', schema, 'medical')
+const daSchema = mongoose.model('da', schema, 'da')
 
-module.exports = medicalSchema
+module.exports = daSchema

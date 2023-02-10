@@ -1,15 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const officeController = require('../Controllers/officeController')
+const Office = require('../Models/officeModel')
+const handlerFactory = require('../Controllers/handlerFactory')
 
 router
   .route('/')
-  .post(officeController.addOffice)
-  .get(officeController.getAllOffice)
+  .get(handlerFactory.getAllData(Office))
+  .post(handlerFactory.addData(Office))
 
 router
   .route('/:id')
-  .delete(officeController.deleteOffice)
-  .get(officeController.getOffice)
+  .delete(handlerFactory.deleteData(Office))
+  .get(handlerFactory.getData(Office))
 
 module.exports = router

@@ -17,14 +17,14 @@ const getAllEducation = async (req, res) => {
 }
 
 const deleteEducation = async (req, res, next) => {
-    const data = await Education.findByIdAndDelete(req.params.id)
+    const data = await Education.findByIdAndDelete({ empid: req.params.id })
     res.status(200).json({
         status: 'Success'
     })
 }
 
 const getEducation = async (req, res, next) => {
-    const data = await Education.findById(req.params.id)
+    const data = await Education.findOne(req.body)
     res.status(201).json({
         status: 'Success',
         data

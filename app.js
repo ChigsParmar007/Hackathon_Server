@@ -12,6 +12,9 @@ const hraRoute = require('./Routes/hraRoute')
 const taRoute = require('./Routes/taRoute')
 const claRoute = require('./Routes/claRoute')
 const medicalRoute = require('./Routes/medicalRoute')
+const daRoute = require('./Routes/daRoute')
+const npsRoute = require('./Routes/npsRoute')
+const increamentRoute = require('./Routes/increamentRoute')
 
 
 const app = express()
@@ -29,6 +32,9 @@ app.use('/api/hra', hraRoute)
 app.use('/api/ta', taRoute)
 app.use('/api/cla', claRoute)
 app.use('/api/medical', medicalRoute)
+app.use('/api/da', daRoute)
+app.use('/api/nps', npsRoute)
+app.use('/api/increment', increamentRoute)
 
 
 module.exports = app

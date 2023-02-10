@@ -1,17 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const CLA = require('../Models/claModel')
+const NPS = require('../Models/npsModel')
 const handlerFactory = require('../Controllers/handlerFactory')
 
 router
     .route('/')
-    .get(handlerFactory.getAllData(CLA))
-    .post(handlerFactory.addData(CLA))
+    .get(handlerFactory.getAllData(NPS))
+    .post(handlerFactory.addData(NPS))
 
 router
     .route('/:id')
-    .delete(handlerFactory.deleteData(CLA))
-    .get(handlerFactory.getData(CLA))
-
+    .delete(handlerFactory.deleteData(NPS))
+    .get(handlerFactory.getData(NPS))
 
 module.exports = router
