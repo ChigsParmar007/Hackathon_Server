@@ -120,7 +120,18 @@ const protect = catchAsync(async (req, res, next) => {
 const getAll = model => async (req, res, next) => {
     const data = await model.find()
     res.status(200).json({
-        status:'success',
+        status: 'success',
+        data
+    })
+}
+
+const getData = model => async (req, res, next) => {
+    const data = await model.findById(req.params.id)
+    if (!data) {
+        return next(new AppError('No data found with this id', 404))
+    }
+    res.status(200).json({
+        status: 'success',
         data
     })
 }
@@ -130,5 +141,6 @@ module.exports = {
     login,
     logout,
     protect,
-    getAll
+    getAll,
+    getData
 }

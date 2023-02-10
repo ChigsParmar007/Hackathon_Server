@@ -49,3 +49,22 @@ office Registration
 get all office
 delete one office
 
+
+
+HRA: City, Percentage
+TA: City, rupees
+CLA: City, rupees
+medical: city, rupees
+
+
+hraRoute.js    
+hraModel.js
+
+taRoute.js    
+taModel.js
+
+claRoute.js    
+claModel.js
+
+medicalRoute.js    
+medicalModel.js

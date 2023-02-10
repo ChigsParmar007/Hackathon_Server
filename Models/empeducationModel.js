@@ -32,8 +32,7 @@ const schema = new mongoose.Schema({
     },
     graduationper: {
         type: Number,
-        required: [true, 'graduation Percentage is required.'],
-        unique: true
+        required: [true, 'graduation Percentage is required.']
     },
     graduationfield: {
         type: String,
@@ -41,16 +40,15 @@ const schema = new mongoose.Schema({
     },
     masteryear: {
         type: Date,
-        required: [true, 'Masters passing year is required.'],
-        unique: true
+        default: 0000 - 00 - 00
     },
     mastersper: {
         type: Number,
-        required: [true, 'Masters Percentage is required.']
+        default: 0
     },
     mastersfield: {
         type: String,
-        required: [true, 'Masters Stream is required.']
+        default: 'Not Attempt'
     },
     ccc: {
         type: String,

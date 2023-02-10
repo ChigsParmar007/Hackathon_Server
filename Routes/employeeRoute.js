@@ -14,6 +14,9 @@ router
     .get('/logout', authController.logout)
 
 router
-	.get('/', authController.getAll(Employee))
+    .get('/', authController.getAll(Employee))
+
+router
+    .get('/:id', authController.getData(Employee))
 
 module.exports = router
