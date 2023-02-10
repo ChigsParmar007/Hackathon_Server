@@ -24,8 +24,17 @@ const deleteCity = async (req, res, next) => {
     })
 }
 
+const getCity = async (req, res, next) => {
+    const data = await City.findById(req.params.id)
+    res.status(201).json({
+        status: 'Success',
+        data
+    })
+}
+
 module.exports = {
     addCity,
     getAllCity,
-    deleteCity
+    deleteCity,
+    getCity
 }

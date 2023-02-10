@@ -6,10 +6,10 @@ const schema = new mongoose.Schema({
         required: [true, 'City Name Field is required.'],
         unique: true
     },
-    ministerId: {
-        type: mongoose.Schema.ObjectId,
+    ministername: {
+        type: String,
         ref: 'minister',
-        required: [true, 'Minister Id field is required.']
+        required: [true, 'Minister name field is required.']
     },
     cityname: {
         type: String,

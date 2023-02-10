@@ -10,5 +10,6 @@ router
 router
     .route('/:id')
     .delete(designationController.deleteDesignation)
+    .get(designationController.getDesignation)
 
 module.exports = router

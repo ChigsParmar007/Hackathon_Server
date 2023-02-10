@@ -23,8 +23,17 @@ const deleteOffice = async (req, res, next) => {
     })
 }
 
+const getOffice = async (req, res, next) => {
+    const data = await City.findById(req.params.id)
+    res.status(201).json({
+        status: 'Success',
+        data
+    })
+}
+
 module.exports = {
     addOffice,
     getAllOffice,
-    deleteOffice
+    deleteOffice,
+    getOffice
 }

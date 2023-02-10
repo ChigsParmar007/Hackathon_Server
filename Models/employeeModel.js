@@ -4,19 +4,19 @@ const crypto = require('crypto')
 const bcrypt = require('bcryptjs')
 
 const schema = new mongoose.Schema({
-    employeeName: {
+    employeename: {
         type: String,
         required: [true, 'Employee Name Field is required.']
     },
-    ministerID: {
-        type: mongoose.Schema.ObjectId,
+    ministername: {
+        type: String,
         ref: 'Minister',
-        required: [true, 'Ministry Object ID Field is required.']
+        required: [true, 'Ministry Name Field is required.']
     },
-    officeID: {
-        type: mongoose.Schema.ObjectId,
+    officename: {
+        type: String,
         ref: 'Office',
-        required: [true, 'Ministry Object ID Field is required.']
+        required: [true, 'Ministry Name Field is required.']
     },
     gender: {
         type: String,
@@ -35,7 +35,7 @@ const schema = new mongoose.Schema({
         minlength: 8,
         select: false
     },
-    passwordConfirm: {
+    passwordconfirm: {
         type: String,
         required: [true, 'Confirm Password filed is required'],
         validate: {
@@ -50,11 +50,11 @@ const schema = new mongoose.Schema({
         type: String,
         required: [true, 'Phone Field is required.']
     },
-    addressLine1: {
+    addressline1: {
         type: String,
         required: [true, 'Address Line 1 Field is required.']
     },
-    addressLine2: {
+    addressline2: {
         type: String,
         required: [true, 'Address Line 2 Field is required.']
     },
@@ -62,15 +62,15 @@ const schema = new mongoose.Schema({
         type: String,
         required: [true, 'City Field is required.']
     },
-    postalCode: {
+    postalcode: {
         type: String,
         required: [true, 'Postal Code Field is required.']
     },
-    dateOfJoining: {
+    dateofjoining: {
         type: Date,
         required: [true, 'Date Of Joining Field is required.']
     },
-    createdAt: {
+    createdat: {
         type: Date,
         default: Date.now()
     }

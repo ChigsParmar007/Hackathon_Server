@@ -24,8 +24,17 @@ const deleteDesignation = async (req, res, next) => {
     })
 }
 
+const getDesignation = async (req, res, next) => {
+    const data = await City.findById(req.params.id)
+    res.status(201).json({
+        status: 'Success',
+        data
+    })
+}
+
 module.exports = {
     addDesignation,
     getAllDesignation,
-    deleteDesignation
+    deleteDesignation,
+    getDesignation
 }

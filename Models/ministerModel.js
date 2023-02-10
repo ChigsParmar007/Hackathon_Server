@@ -50,11 +50,11 @@ const schema = new mongoose.Schema({
             message: 'Passwords and ConfirmPassword are not same.'
         }
     },
-    createdAt: {
+    createdat: {
         type: Date,
         default: Date.now()
     },
-    passwordChangedAt: Date,
+    passwordchangedat: Date,
     active: {
         type: Boolean,
         default: true,

@@ -10,5 +10,6 @@ router
 router
   .route('/:id')
   .delete(officeController.deleteOffice)
+  .get(officeController.getOffice)
 
 module.exports = router
