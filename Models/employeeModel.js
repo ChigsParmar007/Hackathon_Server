@@ -70,14 +70,38 @@ const schema = new mongoose.Schema({
         type: Date,
         required: [true, 'Date Of Joining Field is required.']
     },
-    basicsalary:{
+    basicsalary: {
         type: Number,
         default: 50000
+    },
+    da: {
+        type: Number
+    },
+    hra: {
+        type: Number
+    },
+    ta: {
+        type: Number
+    },
+    cla: {
+        type: Number
+    },
+    medical: {
+        type: Number
     },
     createdat: {
         type: Date,
         default: Date.now()
     }
+})
+
+schema.pre('save', function (next) {
+    this.da = 3
+    this.hra = 15
+    this.ta = 7200
+    this.cla = 240
+    this.medical = 1000
+    next()
 })
 
 schema.pre('save', async function (next) {
