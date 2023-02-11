@@ -16,6 +16,8 @@ router
     .get('/', authController.getAll(Employee))
 
 router
-    .get('/:id', authController.getData(Employee))
+    .route('/:id')
+    .get(authController.getData(Employee))
+    .patch(authController.updateMe(Employee))
 
 module.exports = router

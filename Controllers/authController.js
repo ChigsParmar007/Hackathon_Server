@@ -136,11 +136,22 @@ const getData = model => async (req, res, next) => {
     })
 }
 
+const updateMe = model => (req, res) => {
+    const data = req.body
+    data.updatedAt = Date.now()
+    model.findByIdAndUpdate(req.params.id, data, { new: true, runValidators: true })
+        .then(updatedUser => res.status(200).json({
+            status: 'success',
+            updatedUser
+        }))
+}
+
 module.exports = {
     signup,
     login,
     logout,
     protect,
     getAll,
-    getData
+    getData,
+    updateMe
 }

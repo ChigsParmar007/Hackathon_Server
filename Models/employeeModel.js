@@ -96,6 +96,10 @@ const schema = new mongoose.Schema({
     createdat: {
         type: Date,
         default: Date.now()
+    },
+    updatedat: {
+        type: Date,
+        default: Date.now()
     }
 })
 
