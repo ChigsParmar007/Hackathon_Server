@@ -15,6 +15,8 @@ const medicalRoute = require('./Routes/medicalRoute')
 const daRoute = require('./Routes/daRoute')
 const npsRoute = require('./Routes/npsRoute')
 const increamentRoute = require('./Routes/increamentRoute')
+const trackRecorRoute = require('./Routes/trackRecorRoute')
+const promotionRequestRoute = require('./Routes/promotionRequestRoute')
 
 
 const app = express()
@@ -35,6 +37,7 @@ app.use('/api/medical', medicalRoute)
 app.use('/api/da', daRoute)
 app.use('/api/nps', npsRoute)
 app.use('/api/increment', increamentRoute)
-
+app.use('/api/track', trackRecorRoute)
+app.use('/api/promotion', promotionRequestRoute)
 
 module.exports = app

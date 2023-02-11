@@ -1,6 +1,7 @@
 const catchAsync = require('../utils/catchAsync')
 const EMPLOYEE = require('../Models/employeeModel')
 const INCREMENT = require('../Models/increamentModel')
+const APIFeatures = require('./../utils/apiFeatures');
 
 const addData = (model) => catchAsync(async (req, res) => {
     const data = await model.create(req.body)
@@ -20,20 +21,69 @@ const monthlySalary = async (req, res) => {
     })
 }
 
+// const getAllData = model => catchAsync(async (req, res) => {
+//     const data = await model.find()
+
+//     res.status(200).json({
+//         status: 'Success',
+//         data
+//     })
+// })
+
+
 const getAllData = model => catchAsync(async (req, res) => {
-    const data = await model.find()
+    let filter = {};
+    if (req.params.tourId) filter = { tour: req.params.tourId };
+
+    const features = new APIFeatures(model.find(filter), req.query)
+        .filter()
+        .sort()
+        .limitFields()
+        .paginate();
+    // const doc = await features.query.explain();
+    const doc = await features.query;
+
+    // SEND RESPONSE
     res.status(200).json({
-        status: 'Success',
-        data
-    })
+        status: 'success',
+        results: doc.length,
+        data: {
+            data: doc
+        }
+    });
 })
 
+
+
+// const getData = model => catchAsync(async (req, res) => {
+//     const data = await model.findById(req.params.id)
+//     res.status(200).json({
+//         status: 'Success',
+//         data
+//     })
+// })
+
+
 const getData = model => catchAsync(async (req, res) => {
-    const data = await model.findById(req.params.id)
+    let filter = {};
+    if (req.params.tourId) filter = { tour: req.params.tourId };
+
+    const features = new APIFeatures(model.findById(filter), req.query)
+        .filter()
+        .sort()
+        .limitFields()
+        .paginate();
+    // const doc = await features.query.explain();
+    const doc = await features.query;
+
+    // SEND RESPONSE
     res.status(200).json({
-        status: 'Success',
-        data
-    })
+        status: 'success',
+        results: doc.length,
+        data: {
+            data: doc
+        }
+    });
 })
 
 const deleteData = model => catchAsync(async (req, res) => {

@@ -48,3 +48,12 @@ Year wise prmotion
 increamentModel.js
 increamentRoute.js
 increamentController.js
+
+
+trackRecordModel.js
+trackRecorRoute.js
+trackRecordController.js
+
+promotionRequestModel.js
+promotionRequestRoute.js
+promotionRequestController.js
