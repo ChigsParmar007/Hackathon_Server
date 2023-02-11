@@ -11,15 +11,17 @@ const addData = catchAsync(async (req, res) => {
 })
 
 const getAllData = catchAsync(async (req, res) => {
-    let filter = {};
-    if (req.params.tourId) filter = { tour: req.params.tourId };
+    // let filter = {};
+    // if (req.params.tourId) filter = { tour: req.params.tourId };
 
-    const features = new APIFeatures(PROMOTION.find(filter), req.query)
-        .filter()
-        .sort()
-        .limitFields()
-        .paginate();
-    const data = await features.query;
+    // const features = new APIFeatures(PROMOTION.find(filter), req.query)
+    //     .filter()
+    //     .sort()
+    //     .limitFields()
+    //     .paginate();
+    // const data = await features.query;
+
+    const data = await PROMOTION.find()
 
     // SEND RESPONSE
     res.status(200).json({
@@ -29,16 +31,17 @@ const getAllData = catchAsync(async (req, res) => {
 })
 
 const getData = catchAsync(async (req, res) => {
-    let filter = {};
-    if (req.params.tourId) filter = { tour: req.params.tourId };
+    // let filter = {};
+    // if (req.params.tourId) filter = { tour: req.params.tourId };
 
-    const features = new APIFeatures(PROMOTION.findById(filter), req.query)
-        .filter()
-        .sort()
-        .limitFields()
-        .paginate();
-    const doc = await features.query;
+    // const features = new APIFeatures(PROMOTION.findById(filter), req.query)
+    //     .filter()
+    //     .sort()
+    //     .limitFields()
+    //     .paginate();
+    // const doc = await features.query;
 
+    const data = await PROMOTION.find(req.body)
     // SEND RESPONSE
     res.status(200).json({
         status: 'success',

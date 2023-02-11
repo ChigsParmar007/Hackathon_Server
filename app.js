@@ -18,7 +18,6 @@ const increamentRoute = require('./Routes/increamentRoute')
 const trackRecorRoute = require('./Routes/trackRecorRoute')
 const promotionRequestRoute = require('./Routes/promotionRequestRoute')
 
-
 const app = express()
 app.use(express.json())
 app.use(cors())

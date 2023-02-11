@@ -8,6 +8,6 @@ router
     .post(promotionRequestController.addData)
 
     router
-    .route('/:id').get(promotionRequestController.getData)
+    .route('/getone').post(promotionRequestController.getData)
 
 module.exports = router 

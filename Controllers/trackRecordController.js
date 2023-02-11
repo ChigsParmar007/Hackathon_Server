@@ -40,7 +40,7 @@ const getData = catchAsync(async (req, res) => {
     //     .paginate();
     // const data = await features.query;
 
-    const data = await TRACK.findById(req.params.id)
+    const data = await TRACK.find(req.body)
 
     // SEND RESPONSE
     res.status(200).json({

@@ -8,7 +8,7 @@ router
     .post(trackRecordController.addData)
 
 router
-    .route('/:id')
-    .get(trackRecordController.getData)
+    .route('/getone')
+    .post(trackRecordController.getData)
 
 module.exports = router 
