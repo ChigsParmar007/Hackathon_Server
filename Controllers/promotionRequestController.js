@@ -19,16 +19,13 @@ const getAllData = catchAsync(async (req, res) => {
         .sort()
         .limitFields()
         .paginate();
-    const doc = await features.query;
+    const data = await features.query;
 
     // SEND RESPONSE
     res.status(200).json({
         status: 'success',
-        results: doc.length,
-        data: {
-            data: doc
-        }
-    });
+        data
+    })
 })
 
 const getData = catchAsync(async (req, res) => {
@@ -45,11 +42,8 @@ const getData = catchAsync(async (req, res) => {
     // SEND RESPONSE
     res.status(200).json({
         status: 'success',
-        results: doc.length,
-        data: {
-            data: doc
-        }
-    });
+        data
+    })
 })
 
 const deleteData = catchAsync(async (req, res) => {

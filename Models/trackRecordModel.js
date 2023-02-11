@@ -9,8 +9,8 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
     empid: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'Employee',
+        // type: mongoose.Schema.ObjectId,
+        type: String,
         required: [true, 'Employee ID Field is required.'],
         // unique: true
     },

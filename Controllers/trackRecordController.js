@@ -11,41 +11,40 @@ const addData = catchAsync(async (req, res) => {
 })
 
 const getAllData = catchAsync(async (req, res) => {
-    let filter = {};
-    if (req.params.tourId) filter = { tour: req.params.tourId };
+    // let filter = {};
+    // if (req.params.tourId) filter = { tour: req.params.tourId };
 
-    const features = new APIFeatures(TRACK.find(filter), req.query)
-        .filter()
-        .sort()
-        .limitFields()
-        .paginate();
-    const doc = await features.query;
+    // const features = new APIFeatures(TRACK.find(filter), req.query)
+    //     .filter()
+    //     .sort()
+    //     .limitFields()
+    //     .paginate();
+    // const doc = await features.query;
 
+    const data = await TRACK.find()
     // SEND RESPONSE
     res.status(200).json({
         status: 'success',
-        results: doc.length,
-        data: {
-            data: doc
-        }
+        data
     });
 })
 
 const getData = catchAsync(async (req, res) => {
-    let filter = {};
-    if (req.params.tourId) filter = { tour: req.params.tourId };
+    // let filter = {};
+    // if (req.params.tourId) filter = { tour: req.params.tourId };
 
-    const features = new APIFeatures(TRACK.findById(filter), req.query)
-        .filter()
-        .sort()
-        .limitFields()
-        .paginate();
-    const data = await features.query;
+    // const features = new APIFeatures(TRACK.findById(filter), req.query)
+    //     .filter()
+    //     .sort()
+    //     .limitFields()
+    //     .paginate();
+    // const data = await features.query;
+
+    const data = await TRACK.findById(req.params.id)
 
     // SEND RESPONSE
     res.status(200).json({
         status: 'success',
-        results: data.length,
         data
     });
 })

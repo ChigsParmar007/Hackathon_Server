@@ -2,32 +2,45 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
     empid: {
-        type: mongoose.Schema.ObjectId,
+        // type: mongoose.Schema.ObjectId,
+        type: String,
         required: [true, 'Employee Id Field is required.']
     },
     ccc: {
-        type: Boolean,
-        required: [true, 'CCC Field is required.'],
+        type: String,
         default: false
     },
     hindi: {
-        type: Boolean,
-        required: [true, 'Hindi Field is required.'],
+        type: String,
         default: false
     },
     classexam: {
-        type: Boolean,
-        required: [true, 'Class Exam Field is required.'],
+        type: String,
         default: false
     },
     maritpass: {
-        type: Boolean,
-        required: [true, 'Marit Pass Field is required.'],
+        type: String,
         default: false
+    },
+    training: {
+        type: String
     },
     accuracy: {
         type: Number
     },
+    status: {
+        type: String,
+        enum: ['Pending', 'Accepted', "Rejected"],
+        default: 'Pending'
+    },
+    createdat: {
+        type: Date,
+        default: Date.now()
+    },
+    updatedat: {
+        type: Date,
+        default: Date.now()
+    }
 })
 
 const promotionSchema = mongoose.model('promotion', schema, 'promotion')
