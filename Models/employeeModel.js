@@ -70,6 +70,10 @@ const schema = new mongoose.Schema({
         type: Date,
         required: [true, 'Date Of Joining Field is required.']
     },
+    designation: {
+        type: String,
+        required: [true, 'Designation Field is required.']
+    },
     basicsalary: {
         type: Number,
         default: 50000
