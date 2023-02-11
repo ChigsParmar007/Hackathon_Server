@@ -36,6 +36,14 @@ const schema = new mongoose.Schema({
     },
     total: {
         type: Number
+    },
+    month: {
+        type: Date,
+        default: Date.now()
+    },
+    year: {
+        type: Date,
+        default: Date.now()
     }
 })
 
