@@ -43,8 +43,9 @@ const find = async (model, id) => {
     return await model.findById(id)
 }
 
-const findbByCity = (model, city) => {
-    return model.findOne({ city: city })
+const findbByCity = async (model, city) => {
+    console.log(city)
+    return await model.findOne({ city: city })
 }
 
 schema.pre('save', async function (next) {

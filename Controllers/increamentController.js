@@ -1,7 +1,8 @@
 const catchAsync = require('../utils/catchAsync')
 const EMPLOYEE = require('../Models/employeeModel')
+const INCREMENT = require('../Models/increamentModel')
 
-const addData = model => catchAsync(async (req, res) => {
+const addData = (model) => catchAsync(async (req, res) => {
     const data = await model.create(req.body)
     res.status(201).json({
         status: 'Success',
@@ -11,9 +12,11 @@ const addData = model => catchAsync(async (req, res) => {
 
 const monthlySalary = async (req, res) => {
     const data = await EMPLOYEE.find()
+    data.map(async function (emp) {
+        await INCREMENT.create({ empid: emp._id })
+    })
     res.status(200).json({
-        status: 'Success',
-        data
+        status: 'Success'
     })
 }
 

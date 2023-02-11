@@ -9,10 +9,10 @@ router
     .get(handlerFactory.getAllData(INCREMENT))
     .post(handlerFactory.addData(INCREMENT))
 
-router
-    .route('/:id')
-    .delete(handlerFactory.deleteData(INCREMENT))
-    .get(handlerFactory.getData(INCREMENT))
+// router
+//     .route('/:id')
+    // .delete(handlerFactory.deleteData(INCREMENT))
+    // .get(handlerFactory.getData(INCREMENT))
 
 router
     .route('/monthlysalary')
