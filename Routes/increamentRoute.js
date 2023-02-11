@@ -14,4 +14,8 @@ router
     .delete(handlerFactory.deleteData(INCREMENT))
     .get(handlerFactory.getData(INCREMENT))
 
-module.exports = router
+router
+    .route('/monthlysalary')
+    .get(increamentController.monthlySalary)
+
+module.exports = router 

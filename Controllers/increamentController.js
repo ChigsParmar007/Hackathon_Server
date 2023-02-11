@@ -1,4 +1,5 @@
 const catchAsync = require('../utils/catchAsync')
+const EMPLOYEE = require('../Models/employeeModel')
 
 const addData = model => catchAsync(async (req, res) => {
     const data = await model.create(req.body)
@@ -7,6 +8,14 @@ const addData = model => catchAsync(async (req, res) => {
         data
     })
 })
+
+const monthlySalary = async (req, res) => {
+    const data = await EMPLOYEE.find()
+    res.status(200).json({
+        status: 'Success',
+        data
+    })
+}
 
 const getAllData = model => catchAsync(async (req, res) => {
     const data = await model.find()
@@ -45,5 +54,6 @@ module.exports = {
     getData,
     getAllData,
     deleteData,
-    updateDate
+    updateDate,
+    monthlySalary
 }

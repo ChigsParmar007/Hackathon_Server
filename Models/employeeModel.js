@@ -93,9 +93,15 @@ const schema = new mongoose.Schema({
     medical: {
         type: Number
     },
+    nps: {
+        type: Number
+    },
     createdat: {
         type: Date,
         default: Date.now()
+    },
+    total: {
+        type: Number
     },
     updatedat: {
         type: Date,
